@@ -37,6 +37,8 @@
   translation: Site
 - id: follow
   translation: Follow
+- id: socialLinks
+  translation: Social links
 - id: github
   translation: GitHub
 - id: rss

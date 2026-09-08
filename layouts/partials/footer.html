@@ -4,6 +4,7 @@
       <div class="footer__brand">
         <span class="footer__word">{{ .Site.Title }}</span>
         <span class="footer__tag">{{ .Site.Params.tagline }}</span>
+        {{ partial "social-links.html" . }}
       </div>
       <div class="footer__cols">
         <div class="footer__col">
