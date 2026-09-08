@@ -2,7 +2,7 @@
 
 Stacknote is a warm editorial Hugo theme for technical notes and personal engineering blogs. It combines serif display typography, clay accents, hard-shadow cards, responsive image processing, accessible navigation, full-text fuzzy search, and article-focused SEO.
 
-The live design can be seen at [wanglong.cv](https://wanglong.cv/). A self-contained reference site is included in [`exampleSite/`](exampleSite/).
+The live design can be seen at [wanglong.cv](https://wanglong.cv/). A self-contained reference site is included in [`exampleSite/`](exampleSite/), and a hosted build of it runs at [stacknote.wanglong.cv](https://stacknote.wanglong.cv/) if you want to see the theme with placeholder content only.
 
 ## Preview
 
