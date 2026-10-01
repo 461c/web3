@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>写作 on KuanZZZ</title><link>https://kuanwww.pages.dev/tags/%E5%86%99%E4%BD%9C/</link><description>Recent content in 写作 on KuanZZZ</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Mon, 24 Aug 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://kuanwww.pages.dev/tags/%E5%86%99%E4%BD%9C/index.xml" rel="self" type="application/rss+xml"/><item><title>欢迎来到 Stacknote</title><link>https://kuanwww.pages.dev/articles/welcome/</link><pubDate>Mon, 24 Aug 2026 00:00:00 +0000</pubDate><guid>https://kuanwww.pages.dev/articles/welcome/</guid><description>&lt;p&gt;Stacknote 为清晰、有质感的技术写作而设计。它让工程博客拥有鲜明的视觉风格，同时不会把每一页都变成产品宣传页。&lt;/p&gt;
+&lt;h2 id="完整的阅读体验"&gt;完整的阅读体验&lt;/h2&gt;
+&lt;p&gt;文章页以正文为中心，同时提供目录、代码高亮、响应式表格、相关文章和清晰的键盘焦点状态。&lt;/p&gt;</description></item><item><title>发布技术文章前的简明检查清单</title><link>https://kuanwww.pages.dev/articles/publishing-checklist/</link><pubDate>Mon, 27 Jul 2026 00:00:00 +0000</pubDate><guid>https://kuanwww.pages.dev/articles/publishing-checklist/</guid><description>&lt;p&gt;发布检查清单应该足够简短，才能每次都用起来。我会问自己五个问题：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;开篇是否清楚说明了问题，不需要读者先看一大段背景？&lt;/li&gt;
+&lt;li&gt;命令和代码示例是否仍然可以运行？&lt;/li&gt;
+&lt;li&gt;外部事实是否链接到了原始来源？&lt;/li&gt;
+&lt;li&gt;每张有信息价值的图片是否都有清楚的替代文本？&lt;/li&gt;
+&lt;li&gt;生产构建是否能在没有警告的情况下完成？&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;对于 Hugo 站点，最后一步可以很简单：&lt;/p&gt;</description></item></channel></rss>
