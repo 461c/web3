@@ -1,0 +1,62 @@
+name: Build and publish Hugo site
+
+on:
+  push:
+    branches:
+      - hugo-site
+    paths:
+      - "exampleSite/**"
+      - "assets/**"
+      - "i18n/**"
+      - "layouts/**"
+      - "static/**"
+      - "hugo.toml"
+      - "theme.toml"
+      - ".github/workflows/deploy-hugo.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hugo-pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v7
+
+      - name: Set up Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "0.160.0"
+          extended: true
+
+      - name: Build site
+        shell: bash
+        run: |
+          set -euo pipefail
+          themes_root="${RUNNER_TEMP}/stacknote-themes"
+          mkdir -p "${themes_root}"
+          ln -s "${GITHUB_WORKSPACE}" "${themes_root}/stacknote"
+          export HUGO_RESOURCEDIR="${RUNNER_TEMP}/hugo-resources"
+          hugo \
+            --source "${GITHUB_WORKSPACE}/exampleSite" \
+            --themesDir "${themes_root}" \
+            --noBuildLock \
+            --cacheDir "${RUNNER_TEMP}/hugo-cache" \
+            --destination "${GITHUB_WORKSPACE}/public" \
+            --cleanDestinationDir \
+            --panicOnWarning \
+            --minify
+
+      - name: Publish generated site to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: gh-pages
+          force_orphan: true
