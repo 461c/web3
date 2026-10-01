@@ -1,7 +1,10 @@
 baseURL: https://kuanwww.pages.dev/
-title: Stacknote Demo
+title: Stacknote 中文示例站
 theme: stacknote
-locale: en-US
+defaultContentLanguage: zh-cn
+languageCode: zh-CN
+locale: zh-CN
+hasCJKLanguage: true
 enableRobotsTXT: true
 
 pagination:
@@ -14,15 +17,15 @@ outputs:
   home: [HTML, RSS, JSON]
 
 params:
-  author: Example Author
-  authorInitials: EA
-  role: Software Engineer
-  tagline: Field-tested engineering notes
-  description: A demonstration site for the Stacknote Hugo theme.
-  homeEyebrow: FIELD NOTES · ENGINEERING
-  homeTitle: Notes from building real systems
-  homeIntro: Practical lessons, trade-offs, and reproducible technical work.
-  aboutIntro: I write about systems that have survived contact with production.
+  author: 示例作者
+  authorInitials: "示"
+  role: 软件工程师
+  tagline: 经实践检验的工程笔记
+  description: Stacknote Hugo 主题的简体中文示例站。
+  homeEyebrow: 工程实践 · 技术笔记
+  homeTitle: 记录真实系统的构建过程
+  homeIntro: 分享实践经验、技术取舍与可复现的工程方法。
+  aboutIntro: 这里记录经过生产环境检验的系统经验。
   mainSection: articles
   authorPage: /about/
   showToc: true
@@ -34,24 +37,22 @@ params:
   defaultSocialImage: images/social-card.png
   socialLinks:
     - name: github
-      url: https://github.com/myimilo/hugo-theme-stacknote
-    - name: email
-      url: mailto:hello@example.com
+      url: https://github.com/461c/web3
     - name: rss
       url: /index.xml
 
 menu:
   main:
-    - name: Archive
+    - name: 归档
       url: /archives/
       weight: 10
-    - name: Search
+    - name: 搜索
       url: /search/
       weight: 20
-    - name: Tags
+    - name: 标签
       url: /tags/
       weight: 30
-    - name: About
+    - name: 关于
       url: /about/
       weight: 40
 

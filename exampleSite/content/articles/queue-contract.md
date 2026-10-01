@@ -1,17 +1,17 @@
 ---
-title: "The Queue Is Part of Your API Contract"
+title: "队列也是 API 契约的一部分"
 date: 2026-08-10
-description: "Retries, deadlines, idempotency, and backpressure determine what an asynchronous API actually promises."
-tags: [Systems, Reliability]
+description: "重试、截止时间、幂等性和背压共同决定异步 API 真正作出的承诺。"
+tags: [系统设计, 可靠性]
 ---
 
-Moving work behind a queue changes latency, ownership, and failure semantics. It does not make those concerns disappear.
+把工作放进队列会改变延迟、责任归属和故障语义，但不会让这些问题消失。
 
-## Acknowledgement is not completion
+## 收到请求不等于完成任务
 
-An HTTP `202 Accepted` response says the server accepted responsibility for attempting the job. It should not imply that the job succeeded, or even that a worker has started it.
+HTTP `202 Accepted` 表示服务器已接受任务，并承担尝试执行它的责任。这不代表任务已经成功，甚至不代表工作线程已经开始处理。
 
-Clients need a durable job identifier and a status model they can understand:
+客户端需要一个持久的任务标识，以及清楚易懂的状态信息：
 
 ```json
 {
@@ -21,14 +21,14 @@ Clients need a durable job identifier and a status model they can understand:
 }
 ```
 
-## Retries create duplicates
+## 重试会产生重复任务
 
-A worker can finish the side effect and crash before acknowledging the message. The queue then delivers the same message again. That is ordinary at-least-once delivery, not an exotic edge case.
+工作线程可能已经完成副作用，却在确认消息前崩溃。于是队列会再次投递同一条消息。这就是普通的至少一次投递，并非罕见的边缘情况。
 
-Use an idempotency key, a unique database constraint, or a state transition that can be applied safely more than once. The invariant belongs where the side effect is committed.
+使用幂等键、数据库唯一约束，或可以安全重复执行的状态转换。应在提交副作用的位置保证这一不变量。
 
-## Backpressure is a product decision
+## 背压是一项产品决策
 
-An unbounded queue converts overload into delayed failure. Set limits, publish queue age, and decide what the system rejects when it cannot keep up. A clear `429` or `503` today is often kinder than silently completing a time-sensitive job tomorrow.
+没有上限的队列只会把过载转化为延迟故障。设置容量限制、公布队列等待时间，并决定系统无法继续处理时要拒绝什么。今天清楚地返回 `429` 或 `503`，往往比明天悄悄完成一个已经过期的任务更友好。
 
-The queue is part of the API because its semantics become the client's semantics. Document them with the endpoint.
+队列属于 API 的一部分，因为队列语义最终会成为客户端感受到的语义。请在接口文档中写清楚。

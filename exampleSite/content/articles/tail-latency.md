@@ -1,29 +1,29 @@
 ---
-title: "Measure the Tail, Not Just the Average"
+title: "看尾部延迟，而不只看平均值"
 date: 2026-08-03
-description: "Average latency can improve while the users with the worst experience wait even longer."
-tags: [Performance, Observability]
+description: "平均延迟可能有所改善，但体验最差的用户仍可能等待更久。"
+tags: [性能, 可观测性]
 ---
 
-An average compresses a distribution into one comfortable number. Production latency is rarely comfortable or evenly distributed.
+平均值把整个分布压缩成一个看起来舒服的数字。但生产环境中的延迟，几乎从来都不舒服，也不会均匀分布。
 
-Suppose 99 requests finish in 40 milliseconds and one request takes four seconds. The average is about 80 milliseconds. That number describes almost nobody: most users saw half of it, while the unlucky user waited fifty times longer.
+假设 99 个请求在 40 毫秒内完成，另一个请求花了 4 秒。平均延迟约为 80 毫秒。这个数字几乎不能代表任何一个请求：大多数用户等待了它的一半，而那位倒霉的用户则多等了 50 倍。
 
-## Keep the distribution
+## 保留分布信息
 
-Track at least a few percentiles and request volume together:
+至少要同时跟踪几个百分位数和请求量：
 
-| Metric | Value |
+| 指标 | 数值 |
 |---|---:|
 | P50 | 40 ms |
 | P95 | 58 ms |
 | P99 | 4.0 s |
-| Requests | 100 |
+| 请求数 | 100 |
 
-Percentiles also need enough samples. A P99 calculated from a tiny window is mostly a story about one request, so retain histograms and compare equivalent traffic windows.
+百分位数也需要足够的样本量。用很短的时间窗口计算 P99，结果大多只是在讲一个请求的故事；因此应保留直方图，并比较流量相近的时间段。
 
-## Find the population behind the tail
+## 找到拖慢尾部的那群请求
 
-Split the slow requests by endpoint, region, payload size, cache state, dependency, and retry count. Tail latency often belongs to a specific population that disappears when everything is aggregated.
+按接口、区域、载荷大小、缓存状态、依赖服务和重试次数拆分慢请求。尾部延迟往往只影响一部分请求，把所有数据汇总后，这部分就会消失。
 
-Optimizing the average rewards the common path. Reliability work begins when you ask who is still waiting.
+优化平均值会优先奖励常见路径。可靠性工作则从追问“还有谁在等待？”开始。

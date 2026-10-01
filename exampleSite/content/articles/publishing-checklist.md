@@ -1,24 +1,24 @@
 ---
-title: "A Small Checklist for Shipping Technical Notes"
+title: "发布技术文章前的简明检查清单"
 date: 2026-07-27
-description: "A repeatable publishing pass for links, code, metadata, accessibility, and the final production build."
-tags: [Hugo, Writing]
+description: "一套可重复执行的发布流程，检查链接、代码、元数据、无障碍体验和最终生产构建。"
+tags: [Hugo, 写作]
 ---
 
-A publishing checklist should be short enough to use every time. Mine asks five questions.
+发布检查清单应该足够简短，才能每次都用起来。我会问自己五个问题：
 
-1. Does the opening state the problem without requiring a page of background?
-2. Do commands and code samples still run?
-3. Do external claims link to the original source?
-4. Does every informative image have useful alternative text?
-5. Does the production build complete without warnings?
+1. 开篇是否清楚说明了问题，不需要读者先看一大段背景？
+2. 命令和代码示例是否仍然可以运行？
+3. 外部事实是否链接到了原始来源？
+4. 每张有信息价值的图片是否都有清楚的替代文本？
+5. 生产构建是否能在没有警告的情况下完成？
 
-For a Hugo site, the final check can remain pleasantly boring:
+对于 Hugo 站点，最后一步可以很简单：
 
 ```bash
 hugo --panicOnWarning --minify
 ```
 
-Preview the generated site at both narrow and wide viewport sizes. Long titles, tables, code blocks, and navigation labels expose layout assumptions faster than placeholder text ever will.
+在窄屏和宽屏视口下都预览生成的网站。长标题、表格、代码块和导航标签，比占位文字更容易暴露布局假设。
 
-The purpose of the checklist is not ceremony. It is to move recurring mistakes out of memory and into a process that remains reliable on a busy day.
+清单不是为了走形式，而是把反复出现的错误从记忆中移到流程里，让忙碌时也能稳定发布。

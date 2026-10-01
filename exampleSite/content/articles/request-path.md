@@ -1,37 +1,37 @@
 ---
-title: "Trace the Request Before You Tune the Service"
+title: "调优服务前，先追踪请求路径"
 date: 2026-08-17
-description: "A small observability habit that prevents teams from optimizing the wrong stage of a production request."
-tags: [Systems, Observability]
+description: "一个简单的可观测性习惯，避免团队优化生产请求中错误的环节。"
+tags: [系统设计, 可观测性]
 cover:
   image: images/request-path-cover.png
-  alt: "A request flowing through four measured stages of a production system"
+  alt: "请求依次经过生产系统中四个已测量的阶段"
 ---
 
-A slow endpoint is rarely one indivisible wait. It is a chain: connection setup, queueing, application work, storage, and the trip back to the caller. The useful question is not simply “why is this request slow?” but “where did this request spend its time?”
+一个缓慢的接口，通常不是一段不可拆分的等待，而是一条链路：连接建立、排队、应用处理、存储，以及返回调用方的路程。关键问题不只是“为什么这个请求这么慢？”，而是“这个请求的时间花在了哪里？”
 
-## Start with one trace
+## 先追踪一个请求
 
-Pick one real slow request and write down its stages before changing a timeout or adding a cache.
+在修改超时配置或增加缓存之前，先挑选一个真实的慢请求，记下它经过的各个阶段。
 
 ```text
-gateway       18 ms
-queue        142 ms
-application   31 ms
-database      24 ms
-response       6 ms
+网关          18 ms
+队列         142 ms
+应用处理      31 ms
+数据库        24 ms
+响应           6 ms
 ```
 
-The application function is not the bottleneck in this example. Making it twice as fast saves about 15 milliseconds while the request still waits 142 milliseconds before the function starts.
+在这个例子中，应用函数并不是瓶颈。即使把它的速度提高一倍，也只节省约 15 毫秒，而请求在函数开始执行前仍要等待 142 毫秒。
 
-## Measure boundaries you control
+## 测量你能控制的边界
 
-Add spans around queues, pools, remote calls, and serialization. Record both elapsed time and the identifiers needed to connect a slow span to resource pressure: worker pool, shard, region, or dependency.
+在队列、连接池、远程调用和序列化环节添加追踪跨度。记录耗时，也记录能把慢跨度与资源压力联系起来的标识，例如工作线程池、分片、区域或依赖服务。
 
-The goal is not to produce the largest possible telemetry bill. It is to preserve enough boundaries that a future incident can distinguish waiting from working.
+目标不是制造尽可能高的遥测账单，而是保留足够清晰的边界，让下一次事故排查能够分辨请求是在等待还是在执行。
 
-## Optimize the stage, not the story
+## 优化真正变慢的阶段
 
-Once the slow stage is known, choose the matching intervention. Queue delay may call for admission control or more workers. Database latency may call for an index or fewer round trips. Network setup may call for connection reuse.
+找到慢阶段后，再选择对应的措施。队列延迟可能需要准入控制或增加工作线程；数据库延迟可能需要索引或减少往返；网络连接开销可能需要复用连接。
 
-Without that decomposition, performance work becomes a collection of plausible stories. A trace turns the story into a location.
+如果不先拆解链路，性能优化就容易变成一连串看似合理的猜测。追踪记录能把猜测落到具体位置。

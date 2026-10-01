@@ -1,41 +1,41 @@
 ---
-title: "Welcome to Stacknote"
+title: "欢迎来到 Stacknote"
 date: 2026-08-24
-description: "A demonstration of Stacknote's article typography, navigation, search, and editorial layout."
-tags: [Hugo, Writing]
+description: "展示 Stacknote 的文章排版、导航、搜索与编辑式布局。"
+tags: [Hugo, 写作]
 cover:
   image: images/stacknote-cover.png
-  alt: "Layered editorial cards arranged on a warm paper background"
+  alt: "暖色纸面背景上叠放着多张编辑风格卡片"
 ---
 
-Stacknote is designed for technical writing that values clarity and character. It gives a personal engineering blog a recognizable visual voice without turning every page into a product landing page.
+Stacknote 为清晰、有质感的技术写作而设计。它让工程博客拥有鲜明的视觉风格，同时不会把每一页都变成产品宣传页。
 
-## A complete reading experience
+## 完整的阅读体验
 
-The reading page keeps the article at the center while still providing a table of contents, highlighted code, responsive tables, related articles, and strong keyboard focus states.
+文章页以正文为中心，同时提供目录、代码高亮、响应式表格、相关文章和清晰的键盘焦点状态。
 
 ```go
 func main() {
-    fmt.Println("field-tested notes")
+    fmt.Println("经过实践检验的笔记")
 }
 ```
 
-The same design carries through the homepage, archives, tags, search results, and author page. Local covers are processed by Hugo into responsive WebP variants, while articles without images keep a deliberate text-first layout.
+同一套设计也覆盖首页、归档、标签、搜索结果和作者页面。本地封面图由 Hugo 处理成响应式 WebP 图片；没有配图的文章则采用简洁的纯文本布局。
 
-> A technical theme should make careful writing easier to read, not compete with it.
+> 技术主题应该让认真写作的内容更易阅读，而不是抢走读者的注意力。
 
-## Built for real publishing
+## 为真实发布流程而设计
 
-Articles work with or without cover images, descriptions, or extensive metadata. Sensible fallbacks keep older posts readable, while richer front matter improves cards and social previews when it is available.
+有无封面、描述或丰富的元数据，文章都能正常显示。合理的默认值让旧文章也保持易读；补充更多前置元数据，则能改善文章卡片和社交预览。
 
-| Content feature | What Stacknote does |
+| 内容功能 | Stacknote 的处理方式 |
 |---|---|
-| Local cover | Generates responsive WebP variants |
-| Remote cover | Renders the original URL directly |
-| Description | Reuses it for cards, search, and metadata |
-| Tags | Powers topic browsing and related posts |
-| Headings | Builds an optional table of contents |
+| 本地封面 | 生成响应式 WebP 图片 |
+| 远程封面 | 直接显示原始图片地址 |
+| 文章描述 | 用于卡片、搜索和元数据 |
+| 标签 | 用于主题浏览和相关文章推荐 |
+| 标题 | 可生成目录 |
 
-## A theme that stays out of the repository
+## 让主题代码与站点内容各自独立
 
-Every template can be overridden from the site project. You can keep Stacknote as a Git submodule, customize only the pieces that are genuinely yours, and still pull later theme updates cleanly.
+站点项目可以覆盖主题中的任何模板。你可以把 Stacknote 作为 Git 子模块，只定制真正需要修改的部分，同时仍能清晰地拉取主题更新。

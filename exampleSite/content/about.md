@@ -1,9 +1,9 @@
 ---
-title: About
+title: 关于
 ---
 
-I am Example Author, a software engineer who writes about systems that have survived contact with production.
+我是示例作者，一名软件工程师，专注记录经过生产环境检验的系统经验。
 
-Stacknote is designed for notes that combine practical experience with enough technical depth to remain useful after the week they were published. This example site demonstrates the theme's article typography, navigation, search, archives, taxonomies, responsive covers, and structured metadata.
+Stacknote 为技术笔记而设计，兼顾实践经验与技术深度，让文章在发布一周后仍然有用。这个示例站展示了主题的文章排版、导航、搜索、归档、标签、响应式封面和结构化元数据。
 
-The name, role, biography, links, homepage sections, and article collection are all configured by the site rather than hard-coded into the theme.
+站点名称、作者角色、简介、链接、首页模块和文章集合均由站点配置提供，而不是写死在主题中。
