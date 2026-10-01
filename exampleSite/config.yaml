@@ -1,5 +1,5 @@
 baseURL: https://kuanwww.pages.dev/
-title: Stacknote 中文示例站
+title: KuanZZZ
 theme: stacknote
 defaultContentLanguage: zh-cn
 languageCode: zh-CN
@@ -17,27 +17,27 @@ outputs:
   home: [HTML, RSS, JSON]
 
 params:
-  author: 示例作者
-  authorInitials: "示"
-  role: 软件工程师
-  tagline: 经实践检验的工程笔记
-  description: Stacknote Hugo 主题的简体中文示例站。
-  homeEyebrow: 工程实践 · 技术笔记
-  homeTitle: 记录真实系统的构建过程
-  homeIntro: 分享实践经验、技术取舍与可复现的工程方法。
-  aboutIntro: 这里记录经过生产环境检验的系统经验。
+  author: KUAN
+  authorInitials: "K"
+  role: 生物专业本科生
+  tagline: 研究进展、问题探讨
+  description: 这里记录研究进展、问题探讨。
+  homeEyebrow: 研究进展 · 问题探讨
+  homeTitle: 观察生命记录探索
+  homeIntro: 分享研究进展、问题探讨。
+  aboutIntro: 这里记录研究进展、问题探讨。
   mainSection: articles
   authorPage: /about/
   showToc: true
   showTopics: true
   showAbout: true
-  showNewsletter: true
+  showNewsletter: false
   minTagPostsToIndex: 2
   themeColor: "#FAFAF7"
   defaultSocialImage: images/social-card.png
   socialLinks:
     - name: github
-      url: https://github.com/461c/web3
+      url: https://github.com/461c
     - name: rss
       url: /index.xml
 
